@@ -3,7 +3,7 @@ let order = ["none", 0];
 
 // fetching data asynchronously
 async function fetchData() {
-   const response = await fetch("./public/recycling.json");
+   const response = await fetch("public/recycling.json");
    const json = await response.json();
    return json;
 }

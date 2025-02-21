@@ -10,8 +10,7 @@
           "accepted_items": ["Bottles", "Clothing", "Food containers"],
           "non_accepted_items": ["Toys", "Food wrappers"],
           "recyclability": "Widely recyclable",
-          "environmental_impact": "High energy usage during recycling but can be reused multiple times.",
-          "urls": "https://marylandmatters.org/2023/01/02/trash-troubles-started-with-the-pandemic-but-inflation-keeps-them-going/"
+          "environmental_impact": "High energy usage during recycling but can be reused multiple times."
         },
         {
           "name": "HDPE (High-Density Polyethylene)",
