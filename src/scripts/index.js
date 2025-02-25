@@ -482,7 +482,10 @@ function addData(data) {
    displayData(materialsArr);
 }
 
-// todo
+// todo:
+// Modifying data
+// Form validation
+
 function modifyData(i) {
    
 }
