@@ -56,6 +56,7 @@ fetchData().then((json) => {
          }
       });
    });
+}).then( () => {
    displayData(materialsArr);
 });
 
