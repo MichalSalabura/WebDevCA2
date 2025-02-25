@@ -101,12 +101,12 @@ function sortData(key) {
                   a.hasOwnProperty("urls") &&
                   !b.hasOwnProperty("urls")
                ) {
-                  return 1;
+                  return -1;
                } else if (
                   !a.hasOwnProperty("urls") &&
                   b.hasOwnProperty("urls")
                ) {
-                  return -1;
+                  return 1;
                } else {
                   let x = a.name.toLowerCase();
                   let y = b.name.toLowerCase();
