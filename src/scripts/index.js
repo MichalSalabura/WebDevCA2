@@ -261,7 +261,7 @@ function sortData(key) {
                return 0;
             });
             break;
-         default:
+         case "urls":
             materialsArr = materialsArr.sort((a, b) => {
                if (a.hasOwnProperty('urls') && b.hasOwnProperty('urls')) {
                   let x = a.urls.toLowerCase();
@@ -269,8 +269,10 @@ function sortData(key) {
                   if(x > y) return 1;
                   if(x < y) return -1;
                   return 0;
-               } else if (a.hasOwnProperty('urls') || b.hasOwnProperty('urls')) {
+               } else if (a.hasOwnProperty('urls') && !b.hasOwnProperty('urls')) {
                   return 1;
+               } else if(!a.hasOwnProperty('urls') && b.hasOwnProperty('urls')) {
+                  return -1;
                } else {
                   let x = a.name.toLowerCase();
                   let y = b.name.toLowerCase();
@@ -480,6 +482,7 @@ function addData(data) {
       urls: data[8].value,
    });
    displayData(materialsArr);
+   hideModal()
 }
 
 // todo:
