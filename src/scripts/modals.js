@@ -39,6 +39,7 @@ function specific(id) {
 
 // display form for adding data in a modal
 function addModal() {
+   let isValid;
    let modal = document.getElementById("modal");
    modal.style.display = "block";
    modal.addEventListener("click", (e) => {
@@ -57,6 +58,7 @@ function addModal() {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
+   materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
 
@@ -65,6 +67,7 @@ function addModal() {
    nameLabel.innerText = "Name:";
    let nameInput = document.createElement("input");
    nameInput.id = "name-input";
+   nameInput.required = true;
    form.appendChild(nameLabel);
    form.appendChild(nameInput);
 
@@ -73,6 +76,7 @@ function addModal() {
    codeLabel.innerText = "Recycling Code:";
    let codeInput = document.createElement("input");
    codeInput.id = "code-input";
+   codeInput.required = true;
    form.appendChild(codeLabel);
    form.appendChild(codeInput);
 
@@ -81,6 +85,7 @@ function addModal() {
    processLabel.innerText = "Recycling Process:";
    let processInput = document.createElement("input");
    processInput.id = "process-input";
+   processInput.required = true;
    form.appendChild(processLabel);
    form.appendChild(processInput);
 
@@ -89,6 +94,7 @@ function addModal() {
    acceptedLabel.innerText = "Accepted Items:";
    let acceptedInput = document.createElement("input");
    acceptedInput.id = "accepted-input";
+   acceptedInput.required = true;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
 
@@ -97,6 +103,7 @@ function addModal() {
    nonAcceptedLabel.innerText = "Non Accepted Items:";
    let nonAcceptedInput = document.createElement("input");
    nonAcceptedInput.id = "non-accepted-input";
+   nonAcceptedInput.required = true;
    form.appendChild(nonAcceptedLabel);
    form.appendChild(nonAcceptedInput);
 
@@ -105,6 +112,7 @@ function addModal() {
    recyclabilityLabel.innerText = "Recyclability:";
    let recyclabilityInput = document.createElement("input");
    recyclabilityInput.id = "recyclability-input";
+   recyclabilityInput.required = true;
    form.appendChild(recyclabilityLabel);
    form.appendChild(recyclabilityInput);
 
@@ -113,6 +121,7 @@ function addModal() {
    environmentalLabel.innerText = "Environmental Impact:";
    let environmentalInput = document.createElement("input");
    environmentalInput.id = "environmental-input";
+   environmentalInput.required = true;
    form.appendChild(environmentalLabel);
    form.appendChild(environmentalInput);
 
@@ -121,6 +130,8 @@ function addModal() {
    urlLabel.innerText = "URLs:";
    let urlInput = document.createElement("input");
    urlInput.id = "url-input";
+   urlInput.type = "url";
+   urlInput.pattern = "/^https://.*";
    form.appendChild(urlLabel);
    form.appendChild(urlInput);
 
@@ -132,7 +143,12 @@ function addModal() {
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let data = [...e.target];
-      addData(data);
+      isValid = validate(data)
+      if(isValid == 0) {
+         addData(data);      
+      } else {
+         invalid(isValid, data);
+      }
    });
 
    modalContent.appendChild(form);
