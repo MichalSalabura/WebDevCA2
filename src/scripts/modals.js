@@ -58,6 +58,7 @@ function addModal() {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
+   materialInput.placeholder = "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
    materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
@@ -94,6 +95,7 @@ function addModal() {
    acceptedLabel.innerText = "Accepted Items:";
    let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
+   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`
    acceptedInput.required = true;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
@@ -103,6 +105,7 @@ function addModal() {
    nonAcceptedLabel.innerText = "Non Accepted Items:";
    let nonAcceptedInput = document.createElement("textarea");
    nonAcceptedInput.id = "non-accepted-input";
+   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
    nonAcceptedInput.required = true;
    form.appendChild(nonAcceptedLabel);
    form.appendChild(nonAcceptedInput);
@@ -193,6 +196,7 @@ function addUrl(parent) {
    urlInput.id = "url-input";
    urlInput.type = "url";
    urlInput.pattern = "^https://.*";
+   urlInput.placeholder = "https://JohnDoe.com";
    urlInput.addEventListener('change', e => {
       if (e.target.value == "") {
          removeUrl(parent);
