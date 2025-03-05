@@ -92,7 +92,7 @@ function addModal() {
    let acceptedLabel = document.createElement("label");
    acceptedLabel.setAttribute("for", "accepted-input");
    acceptedLabel.innerText = "Accepted Items:";
-   let acceptedInput = document.createElement("input");
+   let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
    acceptedInput.required = true;
    form.appendChild(acceptedLabel);
@@ -101,7 +101,7 @@ function addModal() {
    let nonAcceptedLabel = document.createElement("label");
    nonAcceptedLabel.setAttribute("for", "non-accepted-input");
    nonAcceptedLabel.innerText = "Non Accepted Items:";
-   let nonAcceptedInput = document.createElement("input");
+   let nonAcceptedInput = document.createElement("textarea");
    nonAcceptedInput.id = "non-accepted-input";
    nonAcceptedInput.required = true;
    form.appendChild(nonAcceptedLabel);
@@ -125,15 +125,15 @@ function addModal() {
    form.appendChild(environmentalLabel);
    form.appendChild(environmentalInput);
 
+   let urlContainer = document.createElement("div");
+   urlContainer.id = "url-container"
    let urlLabel = document.createElement("label");
    urlLabel.setAttribute("for", "url-input");
    urlLabel.innerText = "URLs:";
-   let urlInput = document.createElement("input");
-   urlInput.id = "url-input";
-   urlInput.type = "url";
-   urlInput.pattern = "/^https://.*";
-   form.appendChild(urlLabel);
-   form.appendChild(urlInput);
+   urlContainer.appendChild(urlLabel);
+   addUrl(urlContainer);
+   form.appendChild(urlContainer);
+   
 
    let submitButton = document.createElement("input");
    submitButton.type = "submit";
@@ -186,4 +186,26 @@ function confirmDelete(id) {
    modalContent.appendChild(yesButton);
    modalContent.appendChild(noButton);
    modal.appendChild(modalContent);
+}
+
+function addUrl(parent) {
+   let urlInput = document.createElement("input");
+   urlInput.id = "url-input";
+   urlInput.type = "url";
+   urlInput.pattern = "^https://.*";
+   urlInput.addEventListener('change', e => {
+      if (e.target.value == "") {
+         removeUrl(parent);
+      } else {
+         addUrl(parent);
+      }
+   })
+   parent.appendChild(urlInput);
+}
+function removeUrl(parent) {
+   if(parent.children.length != 2) {
+      parent.removeChild(parent.children[parent.children.length-1]);
+   }
+   
+   
 }

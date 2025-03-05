@@ -6,12 +6,12 @@ function validate(data) {
     let accItemsArr = data[4].value.split(",").map(item => item.trim());
     for(let element of accItemsArr) {
         if(!accepted.includes(element)) return 4;
-    };
+    }
 
     let nonAccItemsArr = data[5].value.split(",").map(item => item.trim());
     for(let element of nonAccItemsArr) {
         if(!nonAccepted.includes(element)) return 5;
-    };
+    }
 
     return 0;
 }
@@ -31,7 +31,6 @@ function invalid(errorCode, data) {
             data[5].placeholder = "Not on the list of nonaccepted items!";
             data[5].value = "";
             break;
-
         default:
             break;
     }

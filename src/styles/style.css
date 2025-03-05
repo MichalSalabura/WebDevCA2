@@ -34,4 +34,10 @@ td {
 form{
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+#url-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
