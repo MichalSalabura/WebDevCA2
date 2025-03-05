@@ -206,6 +206,4 @@ function removeUrl(parent) {
    if(parent.children.length != 2) {
       parent.removeChild(parent.children[parent.children.length-1]);
    }
-   
-   
 }

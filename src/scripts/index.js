@@ -98,6 +98,13 @@ function deleteData(id) {
 
 // add data
 function addData(data) {
+   // add more than 1 url
+   let urlArr = [];
+   for(let i = 8; i <= data.length-1; i++) {
+      if(data[i].type === "url" && data[i].value !== "") {
+         urlArr.push(data[i].value);
+      }
+   }
    let bin_colour = assignBin(data[0].value, data[0].process);
    materialsArr.push({
       material: data[0].value,
@@ -109,7 +116,7 @@ function addData(data) {
       recyclability: data[6].value,
       impact: data[7].value,
       bin: bin_colour,
-      urls: data[8].value,
+      urls: urlArr,
    });
    displayData(materialsArr);
    hideModal()
