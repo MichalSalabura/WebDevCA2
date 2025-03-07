@@ -130,10 +130,6 @@ menu.addEventListener("click", () => {
   offScreenMenu.classList.toggle("active");
 });
 
-// todo:
-// Modifying data
-// Form validation
-
 function createImage(urls) {
    let imageContainer = document.createElement("div");
    imageContainer.className = "img-container";
@@ -141,4 +137,13 @@ function createImage(urls) {
    image.src = urls[0];
    imageContainer.appendChild(image);
    return imageContainer;
+}
+
+// todo:
+// Form validation
+// Modifying tags
+// Styling
+
+function addTags() {
+
 }

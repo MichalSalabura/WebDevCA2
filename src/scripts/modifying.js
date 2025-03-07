@@ -32,7 +32,7 @@ function displayModify(id) {
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
    materialInput.placeholder =
-      "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
+      `Ex. ${types.toString()}`;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
 

@@ -61,7 +61,7 @@ function addModal() {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
-   materialInput.placeholder = "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
+   materialInput.placeholder = `Available types: ${types.toString()}`;
    materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
@@ -214,4 +214,3 @@ function removeUrl(parent) {
       parent.removeChild(parent.children[parent.children.length-1]);
    }
 }
-
