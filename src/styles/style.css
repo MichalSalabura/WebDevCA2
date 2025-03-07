@@ -52,6 +52,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
 */table {
   border-collapse: collapse;
 }
+@media screen and (max-width: 600px) {.column {
+       width: 100%;
+   }
+}
 table, td, th{
   border: 1px solid;  
 }
@@ -150,7 +154,7 @@ nav {
 .menu.active span:nth-child(2) {
     opacity: 0%;
 }
-.ham-menu.active span:nth-child(3) {
+menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
