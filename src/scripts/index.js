@@ -23,15 +23,9 @@ fetchData()
 
          // put data into an array of objects and assing proper bin colours to plastic materials
          material.categories.forEach((cat) => {
+            // get bin colour
             let bin_colour = assignBin(type, cat.recycling_code);
-            // list of all accepted
-            // if(!accepted.includes(cat.accepted_items)) {
-            //    accepted.push(cat.accepted_items);
-            // }
-            // list of all non accepted
-            // if(!nonAccepted.includes(cat.non_accepted_items)) {
-            //    nonAccepted.push(cat.non_accepted_items);
-            // }
+            
             // list of all accepted exclusive
             cat.accepted_items.forEach((item) => {
                if (!accepted.includes(item)) accepted.push(item);
@@ -105,6 +99,7 @@ function addData(data) {
          urlArr.push(data[i].value);
       }
    }
+   // get bin colour
    let bin_colour = assignBin(data[0].value, data[0].process);
    materialsArr.push({
       material: data[0].value,
@@ -122,14 +117,15 @@ function addData(data) {
    hideModal();
 }
 
+// Displays menu
 const menu = document.querySelector(".menu");
 const offScreenMenu = document.querySelector(".off-screen-menu");
-
 menu.addEventListener("click", () => {
    menu.classList.toggle("active");
    offScreenMenu.classList.toggle("active");
 });
 
+// Creates and returns container with images
 function createImage(urls) {
    let imageContainer = document.createElement("div");
    imageContainer.className = "img-container";

@@ -1,21 +1,23 @@
+// validate form inputs while adding
 function validate(data) {
+   // check if type exists
    if (!types.includes(data[0].value)) {
       return 1;
    }
-
+// check if accepted item exists
    let accItemsArr = data[4].value.split(",").map((item) => item.trim());
    for (let element of accItemsArr) {
       if (!accepted.includes(element)) return 4;
    }
-
+// check if non accepted item exists
    let nonAccItemsArr = data[5].value.split(",").map((item) => item.trim());
    for (let element of nonAccItemsArr) {
       if (!nonAccepted.includes(element)) return 5;
    }
-
+   // return 0 if no errors
    return 0;
 }
-
+// validation for modifying
 function validateModify(data) {
    if (!types.includes(data[0].value) && data[0].value !== "") {
       return 1;
@@ -36,7 +38,7 @@ function validateModify(data) {
 
    return 0;
 }
-
+// Return error message
 function invalid(errorCode, data) {
    switch (errorCode) {
       case 1:

@@ -1,8 +1,9 @@
-// displaying data
+// displaying data by getting a display div and creating table in it
 function displayData(data) {
    let display = document.getElementById("display");
    display.innerHTML = "";
    let table = document.createElement("table");
+   // Create headers
    let headRow = document.createElement("tr");
    let check = false;
    let inCheck = false;
@@ -37,7 +38,7 @@ function displayData(data) {
    }
 
    table.appendChild(headRow);
-
+// Create rows
    for (let i = 0; i < data.length; i++) {
       let row = document.createElement("tr");
       row.id = i;
@@ -54,7 +55,7 @@ function displayData(data) {
          tableData.innerText = "";
          row.appendChild(tableData);
       }
-
+      // Create buttons for modifying and deleting
       let delButton = document.createElement("button");
       delButton.className = "control-button";
       delButton.innerText = "Delete";
@@ -68,13 +69,15 @@ function displayData(data) {
       modifButton.addEventListener("click", (e) => {
          displayModify(i);
       });
-
+// append elements to table
       let buttonsContainer = document.createElement("td");
       buttonsContainer.className = "buttons-container";
       buttonsContainer.appendChild(delButton);
       buttonsContainer.appendChild(modifButton);
       row.appendChild(buttonsContainer);
+
       table.appendChild(row);
    }
+   // append table to display
    display.appendChild(table);
 }

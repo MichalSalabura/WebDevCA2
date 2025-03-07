@@ -7,8 +7,10 @@ function hideModal() {
 // Display row data in a modal
 function specific(id) {
    id = parseInt(id);
+   // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
+   // hide modal on click
    modal.addEventListener("click", (e) => {
       if (e.target.id == "modal") {
          hideModal();
@@ -17,34 +19,41 @@ function specific(id) {
    let modalContent = document.createElement("div");
    let modTable = document.createElement("table");
    let headRow = document.createElement("tr");
+      // create headers
    for (property in materialsArr[id]) {
       let header = document.createElement("th");
       header.innerText = property;
       headRow.appendChild(header);
    }
+   // append header to table in modal
    modTable.appendChild(headRow);
-
+// Create rows
    let row = document.createElement("tr");
    for (property in materialsArr[id]) {
       let tableContent = document.createElement("td");
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-
+// append row
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
+   // append urls if exist
    if (materialsArr[id].hasOwnProperty("urls")) {
       modalContent.appendChild(createImage(materialsArr[id]["urls"]));
    }
+
    modalContent.className = "modal-content";
+   // append modal to display
    modal.appendChild(modalContent);
 }
 
 // display form for adding data in a modal
 function addModal() {
    let isValid;
+      // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
+   // hide modal on click
    modal.addEventListener("click", (e) => {
       if (e.target.id == "modal") {
          hideModal();
@@ -53,6 +62,8 @@ function addModal() {
 
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
+
+   // Create form
 
    let form = document.createElement("form");
 
@@ -146,6 +157,7 @@ function addModal() {
    submitButton.value = "submit";
    form.appendChild(submitButton);
 
+   // check if data is valid on submit
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let data = [...e.target];
@@ -156,7 +168,7 @@ function addModal() {
          invalid(isValid, data);
       }
    });
-
+// append elements to display modal
    modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }
@@ -193,7 +205,7 @@ function confirmDelete(id) {
    modalContent.appendChild(noButton);
    modal.appendChild(modalContent);
 }
-
+// Add empty url input
 function addUrl(parent) {
    let urlInput = document.createElement("input");
    urlInput.id = "url-input";
@@ -209,12 +221,13 @@ function addUrl(parent) {
    });
    parent.appendChild(urlInput);
 }
+// remove empty url input
 function removeUrl(parent) {
    if (parent.children.length != 2) {
       parent.removeChild(parent.children[parent.children.length - 1]);
    }
 }
-
+// dispaly add tag modal
 function addTagModal() {
    let modal = document.getElementById("modal");
    modal.style.display = "block";

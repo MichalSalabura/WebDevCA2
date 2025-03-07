@@ -117,5 +117,6 @@ function sortData(key) {
             });
       }
    }
+   // display sorted data
    displayData(materialsArr);
 }

@@ -1,12 +1,17 @@
+// display modify screen
 function displayModify(id) {
    id = parseInt(id);
+// get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
+   // hide modal on click
    modal.addEventListener("click", (e) => {
       if (e.target.id == "modal") {
          hideModal();
       }
+
    });
+   // create table and display data
    let modalContent = document.createElement("div");
    let modTable = document.createElement("table");
    let headRow = document.createElement("tr");
@@ -23,7 +28,7 @@ function displayModify(id) {
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-
+// Create form for modifying data
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -107,6 +112,7 @@ function displayModify(id) {
    submitButton.value = "submit";
    form.appendChild(submitButton);
 
+   // validate data on submit
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let data = [...e.target];
@@ -117,32 +123,37 @@ function displayModify(id) {
          invalid(isValid, data);
       }
    });
-
+   //append row 
    modTable.appendChild(row);
+   // append images
    modalContent.appendChild(modTable);
    if (materialsArr[id].hasOwnProperty("urls")) {
       modalContent.appendChild(createImage(materialsArr[id]["urls"]));
    }
-
+   // append form
    modalContent.appendChild(form);
    modalContent.className = "modal-content";
+   // display all
    modal.appendChild(modalContent);
 }
 
 function modifyData(id, data) {
    let urlArr = [];
    let bin_colour;
+   // assign bin colour
    if (data[0].value !== "" && data[2].value !== "") {
       bin_colour = assignBin(data[0].value, data[2].value);
    } else {
       bin_colour = materialsArr[id].bin;
    }
 
+   // get all urls
    for (let i = 8; i <= data.length - 1; i++) {
       if (data[i].type === "url" && data[i].value !== "") {
          urlArr.push(data[i].value);
       }
    }
+   // assign new values
    if (data[0].value !== "") {
       materialsArr[id].material = data[0].value;
    }
@@ -181,6 +192,8 @@ function modifyData(id, data) {
    if (urlArr !== "") {
       materialsArr[id].urls = urlArr;
    }
+   // display changed data
    displayData(materialsArr);
+   // hide modal
    hideModal();
 }

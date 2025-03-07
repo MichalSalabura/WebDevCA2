@@ -10,7 +10,7 @@ function addTagModal() {
 
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
-
+   // create form for adding tags
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -28,6 +28,7 @@ function addTagModal() {
    submitButton.value = "submit";
    form.appendChild(submitButton);
 
+   // add tag and hide modal on submit
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       types.push(e.target[0].value);
@@ -40,7 +41,9 @@ function addTagModal() {
 // Removing tags
 function deleteTagModal() {
    let modal = document.getElementById("modal");
+   // display modal
    modal.style.display = "block";
+   // hide modal on click
    modal.addEventListener("click", (e) => {
       if (e.target.id == "modal") {
          hideModal();
@@ -49,7 +52,7 @@ function deleteTagModal() {
 
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
-
+// create form for deleting tags
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -68,7 +71,7 @@ function deleteTagModal() {
    submitButton.type = "submit";
    submitButton.value = "submit";
    form.appendChild(submitButton);
-
+// remove tag and hide modal if entered type exists or display that type doesn't exist
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       if (e.target[0].value !== "" && types.includes(e.target[0].value)) {
@@ -78,7 +81,7 @@ function deleteTagModal() {
          error.innerText = "No such type!";
       }
    });
-
+// append content to modal
    modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }
