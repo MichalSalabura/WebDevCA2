@@ -11,6 +11,11 @@ td {
   cursor: pointer;
 }
 
+@media screen and (max-width: 600px) {
+  .column {
+  width: 100%;
+}
+}
 #modal {
   display: none;
   position: fixed;
