@@ -23,6 +23,7 @@ function displayModify(id) {
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
+
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -32,7 +33,6 @@ function displayModify(id) {
    materialInput.id = "material-input";
    materialInput.placeholder =
       "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
-   materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
 
@@ -41,7 +41,6 @@ function displayModify(id) {
    nameLabel.innerText = "Name:";
    let nameInput = document.createElement("input");
    nameInput.id = "name-input";
-   nameInput.required = true;
    form.appendChild(nameLabel);
    form.appendChild(nameInput);
 
@@ -50,7 +49,6 @@ function displayModify(id) {
    codeLabel.innerText = "Recycling Code:";
    let codeInput = document.createElement("input");
    codeInput.id = "code-input";
-   codeInput.required = true;
    form.appendChild(codeLabel);
    form.appendChild(codeInput);
 
@@ -59,7 +57,6 @@ function displayModify(id) {
    processLabel.innerText = "Recycling Process:";
    let processInput = document.createElement("input");
    processInput.id = "process-input";
-   processInput.required = true;
    form.appendChild(processLabel);
    form.appendChild(processInput);
 
@@ -69,7 +66,6 @@ function displayModify(id) {
    let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
    acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
-   acceptedInput.required = true;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
 
@@ -79,7 +75,6 @@ function displayModify(id) {
    let nonAcceptedInput = document.createElement("textarea");
    nonAcceptedInput.id = "non-accepted-input";
    nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
-   nonAcceptedInput.required = true;
    form.appendChild(nonAcceptedLabel);
    form.appendChild(nonAcceptedInput);
 
@@ -88,7 +83,6 @@ function displayModify(id) {
    recyclabilityLabel.innerText = "Recyclability:";
    let recyclabilityInput = document.createElement("input");
    recyclabilityInput.id = "recyclability-input";
-   recyclabilityInput.required = true;
    form.appendChild(recyclabilityLabel);
    form.appendChild(recyclabilityInput);
 
@@ -97,7 +91,6 @@ function displayModify(id) {
    environmentalLabel.innerText = "Environmental Impact:";
    let environmentalInput = document.createElement("input");
    environmentalInput.id = "environmental-input";
-   environmentalInput.required = true;
    form.appendChild(environmentalLabel);
    form.appendChild(environmentalInput);
 
@@ -118,7 +111,7 @@ function displayModify(id) {
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let data = [...e.target];
-      isValid = validate(data);
+      isValid = validateModify(data);
       if (isValid == 0) {
          modifyData(id, data);
       } else {
@@ -128,6 +121,10 @@ function displayModify(id) {
 
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
+   if (materialsArr[id].hasOwnProperty("urls")) {
+    modalContent.appendChild(createImage(materialsArr[id]["urls"]));
+   }
+   
    modalContent.appendChild(form);
    modalContent.className = "modal-content";
    modal.appendChild(modalContent);
@@ -141,16 +138,50 @@ function modifyData(id, data) {
       }
    }
    let bin_colour = assignBin(data[0].value, data[0].process);
-   materialsArr[id].material = data[0].value;
-   materialsArr[id].name = data[1].value;
-   materialsArr[id].code = data[2].value;
-   materialsArr[id].process = data[3].value;
-   materialsArr[id].accepted = data[4].value;
-   materialsArr[id].non_accepted = data[5].value;
-   materialsArr[id].recyclability = data[6].value;
-   materialsArr[id].impact = data[7].value;
-   materialsArr[id].bin = bin_colour;
-   materialsArr[id].urls = urlArr;
+   if(data[0].value !== "") {
+    materialsArr[id].material = data[0].value;
+   }
+   
+   if(data[1].value !=="") {
+    materialsArr[id].name = data[1].value;
+   }
+   
+   if(data[2].value !=="") {
+    materialsArr[id].code = data[2].value;
+   }
+   
+   if(data[3].value !=="") {
+    materialsArr[id].process = data[3].value;
+   }
+   
+   if(data[4].value !=="") {
+    materialsArr[id].accepted = data[4].value;
+   }
+   
+   if(data[5].value !=="") {
+    materialsArr[id].non_accepted = data[5].value;
+   }
+   
+   if(data[6].value !=="") {
+    materialsArr[id].recyclability = data[6].value;
+   }
+   
+   if(data[7].value !=="") {
+    materialsArr[id].impact = data[7].value;
+   }
+   
+   if(bin_colour !== "") {
+    materialsArr[id].bin = bin_colour;
+   }
+    if(urlArr !=="") {
+        materialsArr[id].urls = urlArr;
+    }
    displayData(materialsArr);
    hideModal();
+}
+
+function createImage(urls) {
+    let image = document.createElement('img');
+    image.src = urls[0];
+    return image;
 }
