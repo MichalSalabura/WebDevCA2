@@ -33,7 +33,7 @@ function specific(id) {
 
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
-   if(materialsArr[id].hasOwnProperty("urls")) {
+   if (materialsArr[id].hasOwnProperty("urls")) {
       modalContent.appendChild(createImage(materialsArr[id]["urls"]));
    }
    modalContent.className = "modal-content";
@@ -61,7 +61,8 @@ function addModal() {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
-   materialInput.placeholder = "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
+   materialInput.placeholder =
+      "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
    materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
@@ -98,7 +99,7 @@ function addModal() {
    acceptedLabel.innerText = "Accepted Items:";
    let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
-   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`
+   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
    acceptedInput.required = true;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
@@ -132,14 +133,13 @@ function addModal() {
    form.appendChild(environmentalInput);
 
    let urlContainer = document.createElement("div");
-   urlContainer.id = "url-container"
+   urlContainer.id = "url-container";
    let urlLabel = document.createElement("label");
    urlLabel.setAttribute("for", "url-input");
    urlLabel.innerText = "URLs:";
    urlContainer.appendChild(urlLabel);
    addUrl(urlContainer);
    form.appendChild(urlContainer);
-   
 
    let submitButton = document.createElement("input");
    submitButton.type = "submit";
@@ -149,9 +149,9 @@ function addModal() {
    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let data = [...e.target];
-      isValid = validate(data)
-      if(isValid == 0) {
-         addData(data);      
+      isValid = validate(data);
+      if (isValid == 0) {
+         addData(data);
       } else {
          invalid(isValid, data);
       }
@@ -200,18 +200,18 @@ function addUrl(parent) {
    urlInput.type = "url";
    urlInput.pattern = "^https://.*";
    urlInput.placeholder = "https://JohnDoe.com";
-   urlInput.addEventListener('change', e => {
+   urlInput.addEventListener("change", (e) => {
       if (e.target.value == "") {
          removeUrl(parent);
       } else {
          addUrl(parent);
       }
-   })
+   });
    parent.appendChild(urlInput);
 }
 function removeUrl(parent) {
-   if(parent.children.length != 2) {
-      parent.removeChild(parent.children[parent.children.length-1]);
+   if (parent.children.length != 2) {
+      parent.removeChild(parent.children[parent.children.length - 1]);
    }
 }
 
