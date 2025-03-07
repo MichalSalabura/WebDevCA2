@@ -140,10 +140,6 @@ function createImage(urls) {
 }
 
 // todo:
-// Form validation
+// Proper Form validation
 // Modifying tags
 // Styling
-
-function addTags() {
-
-}
