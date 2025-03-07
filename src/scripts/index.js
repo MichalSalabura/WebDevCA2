@@ -134,3 +134,11 @@ menu.addEventListener("click", () => {
 // Modifying data
 // Form validation
 
+function createImage(urls) {
+   let imageContainer = document.createElement("div");
+   imageContainer.className = "img-container";
+   let image = document.createElement('img');
+   image.src = urls[0];
+   imageContainer.appendChild(image);
+   return imageContainer;
+}

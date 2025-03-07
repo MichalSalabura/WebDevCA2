@@ -33,6 +33,9 @@ function specific(id) {
 
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
+   if(materialsArr[id].hasOwnProperty("urls")) {
+      modalContent.appendChild(createImage(materialsArr[id]["urls"]));
+   }
    modalContent.className = "modal-content";
    modal.appendChild(modalContent);
 }

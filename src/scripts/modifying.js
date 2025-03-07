@@ -132,12 +132,18 @@ function displayModify(id) {
 
 function modifyData(id, data) {
    let urlArr = [];
+   let bin_colour 
+   if(data[0].value !== "" && data[2].value !== "") {
+    bin_colour = assignBin(data[0].value, data[2].value);
+   } else {
+    bin_colour = materialsArr[id].bin;
+   }
+
    for (let i = 8; i <= data.length - 1; i++) {
       if (data[i].type === "url" && data[i].value !== "") {
          urlArr.push(data[i].value);
       }
    }
-   let bin_colour = assignBin(data[0].value, data[0].process);
    if(data[0].value !== "") {
     materialsArr[id].material = data[0].value;
    }
@@ -178,10 +184,4 @@ function modifyData(id, data) {
     }
    displayData(materialsArr);
    hideModal();
-}
-
-function createImage(urls) {
-    let image = document.createElement('img');
-    image.src = urls[0];
-    return image;
 }
