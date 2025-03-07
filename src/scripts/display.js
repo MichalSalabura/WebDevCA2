@@ -66,7 +66,7 @@ function displayData(data) {
       modifButton.className = "control-button";
       modifButton.innerText = "Modify";
       modifButton.addEventListener("click", (e) => {
-         modifyData(i);
+         displayModify(i);
       });
 
       let buttonsContainer = document.createElement("td");
