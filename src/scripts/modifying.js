@@ -23,7 +23,7 @@ function displayModify(id) {
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-   
+
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -31,8 +31,7 @@ function displayModify(id) {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
-   materialInput.placeholder =
-      `Ex. ${types.toString()}`;
+   materialInput.placeholder = `Ex. ${types.toString()}`;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
 
@@ -122,9 +121,9 @@ function displayModify(id) {
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
    if (materialsArr[id].hasOwnProperty("urls")) {
-    modalContent.appendChild(createImage(materialsArr[id]["urls"]));
+      modalContent.appendChild(createImage(materialsArr[id]["urls"]));
    }
-   
+
    modalContent.appendChild(form);
    modalContent.className = "modal-content";
    modal.appendChild(modalContent);
@@ -132,11 +131,11 @@ function displayModify(id) {
 
 function modifyData(id, data) {
    let urlArr = [];
-   let bin_colour 
-   if(data[0].value !== "" && data[2].value !== "") {
-    bin_colour = assignBin(data[0].value, data[2].value);
+   let bin_colour;
+   if (data[0].value !== "" && data[2].value !== "") {
+      bin_colour = assignBin(data[0].value, data[2].value);
    } else {
-    bin_colour = materialsArr[id].bin;
+      bin_colour = materialsArr[id].bin;
    }
 
    for (let i = 8; i <= data.length - 1; i++) {
@@ -144,44 +143,44 @@ function modifyData(id, data) {
          urlArr.push(data[i].value);
       }
    }
-   if(data[0].value !== "") {
-    materialsArr[id].material = data[0].value;
+   if (data[0].value !== "") {
+      materialsArr[id].material = data[0].value;
    }
-   
-   if(data[1].value !=="") {
-    materialsArr[id].name = data[1].value;
+
+   if (data[1].value !== "") {
+      materialsArr[id].name = data[1].value;
    }
-   
-   if(data[2].value !=="") {
-    materialsArr[id].code = data[2].value;
+
+   if (data[2].value !== "") {
+      materialsArr[id].code = data[2].value;
    }
-   
-   if(data[3].value !=="") {
-    materialsArr[id].process = data[3].value;
+
+   if (data[3].value !== "") {
+      materialsArr[id].process = data[3].value;
    }
-   
-   if(data[4].value !=="") {
-    materialsArr[id].accepted = data[4].value;
+
+   if (data[4].value !== "") {
+      materialsArr[id].accepted = data[4].value;
    }
-   
-   if(data[5].value !=="") {
-    materialsArr[id].non_accepted = data[5].value;
+
+   if (data[5].value !== "") {
+      materialsArr[id].non_accepted = data[5].value;
    }
-   
-   if(data[6].value !=="") {
-    materialsArr[id].recyclability = data[6].value;
+
+   if (data[6].value !== "") {
+      materialsArr[id].recyclability = data[6].value;
    }
-   
-   if(data[7].value !=="") {
-    materialsArr[id].impact = data[7].value;
+
+   if (data[7].value !== "") {
+      materialsArr[id].impact = data[7].value;
    }
-   
-   if(bin_colour !== "") {
-    materialsArr[id].bin = bin_colour;
+
+   if (bin_colour !== "") {
+      materialsArr[id].bin = bin_colour;
    }
-    if(urlArr !=="") {
-        materialsArr[id].urls = urlArr;
-    }
+   if (urlArr !== "") {
+      materialsArr[id].urls = urlArr;
+   }
    displayData(materialsArr);
    hideModal();
 }
