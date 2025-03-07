@@ -61,7 +61,7 @@ function addModal() {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
-   materialInput.placeholder = `Available types: ${types.toString()}`;
+   materialInput.placeholder = "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
    materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
@@ -213,4 +213,43 @@ function removeUrl(parent) {
    if(parent.children.length != 2) {
       parent.removeChild(parent.children[parent.children.length-1]);
    }
+}
+
+function addTagModal() {
+   let modal = document.getElementById("modal");
+   modal.style.display = "block";
+   modal.addEventListener("click", (e) => {
+      if (e.target.id == "modal") {
+         hideModal();
+      }
+   });
+
+   let modalContent = document.createElement("div");
+   modalContent.className = "modal-content";
+
+   let form = document.createElement("form");
+
+   let materialLabel = document.createElement("label");
+   materialLabel.setAttribute("for", "material-input");
+   materialLabel.innerText = "Input new Tag:";
+   let materialInput = document.createElement("input");
+   materialInput.id = "material-input";
+   materialInput.placeholder = `Current Tags: ta`;
+   materialInput.required = true;
+   form.appendChild(materialLabel);
+   form.appendChild(materialInput);
+
+   let submitButton = document.createElement("input");
+   submitButton.type = "submit";
+   submitButton.value = "submit";
+   form.appendChild(submitButton);
+
+   form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let data = [...e.target];
+      types.push(e.target[0]);
+   });
+
+   modalContent.appendChild(form);
+   modal.appendChild(modalContent);
 }

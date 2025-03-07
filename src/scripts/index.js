@@ -133,9 +133,11 @@ menu.addEventListener("click", () => {
 function createImage(urls) {
    let imageContainer = document.createElement("div");
    imageContainer.className = "img-container";
-   let image = document.createElement('img');
-   image.src = urls[0];
+   for(let i = 0; i < urls.length; i++){
+      let image = document.createElement('img');
+      image.src = urls[i];
    imageContainer.appendChild(image);
+   }
    return imageContainer;
 }
 

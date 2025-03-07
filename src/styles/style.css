@@ -118,3 +118,8 @@ menu.active span:nth-child(3) {
 display {
   margin: 20px;
 }
+.img-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

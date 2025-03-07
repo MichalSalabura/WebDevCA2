@@ -23,7 +23,7 @@ function displayModify(id) {
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-
+   
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
