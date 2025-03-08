@@ -128,7 +128,7 @@ function displayModify(id) {
    // append images
    modalContent.appendChild(modTable);
    if (materialsArr[id].hasOwnProperty("urls")) {
-      modalContent.appendChild(createImage(materialsArr[id]["urls"]));
+      modalContent.appendChild(createImageModif(materialsArr[id]["urls"], id));
    }
    // append form
    modalContent.appendChild(form);

@@ -137,6 +137,24 @@ function createImage(urls) {
    return imageContainer;
 }
 
+function createImageModif(urls, id) {
+   let imageContainer = document.createElement("div");
+   imageContainer.className = "img-container";
+   for (let i = 0; i < urls.length; i++) {
+      let image = document.createElement("img");
+      image.src = urls[i];
+      image.addEventListener('click', e => {
+         index = materialsArr[id]["urls"].indexOf(e.target.src);
+         materialsArr[id]["urls"].splice(index, 1);
+         displayData(materialsArr);
+         hideModal();
+         displayModify(id);
+      })
+      imageContainer.appendChild(image);
+   }
+   return imageContainer;
+}
+
 // todo:
 // Proper Form validation
 // Modifying tags
