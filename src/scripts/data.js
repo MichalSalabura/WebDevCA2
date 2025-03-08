@@ -207,7 +207,7 @@ function createDataForm() {
    acceptedLabel.className = "input-label";
    let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
-   acceptedInput.classList = "input-field";
+   acceptedInput.classList = "input-field input-area";
    acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
@@ -218,7 +218,7 @@ function createDataForm() {
    nonAcceptedLabel.className = "input-label";
    let nonAcceptedInput = document.createElement("textarea");
    nonAcceptedInput.id = "non-accepted-input";
-   nonAcceptedInput.classList = "input-field";
+   nonAcceptedInput.classList = "input-field input-area";
    nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
    form.appendChild(nonAcceptedLabel);
    form.appendChild(nonAcceptedInput);
