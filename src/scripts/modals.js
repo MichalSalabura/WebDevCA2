@@ -88,12 +88,17 @@ function confirmDelete(id) {
    modal.style.display = "block";
 
    let modalContent = document.createElement("div");
-   modalContent.className = "confirm-delete modal-content";
+   modalContent.classList = "confirm-delete modal-content";
 
    let question = document.createElement("p");
+   question.id = "delete-question"
    question.innerText = "Are you sure you want to delet this data?";
 
+   let deleteButtonContainer = document.createElement('div');
+   deleteButtonContainer.id = "del-but-cont";
+
    let yesButton = document.createElement("button");
+   yesButton.classList = "delete-button";
    yesButton.innerText = "Yes";
    yesButton.addEventListener("click", () => {
       deleteData(id);
@@ -101,11 +106,14 @@ function confirmDelete(id) {
    });
 
    let noButton = document.createElement("button");
+   noButton.classList = "delete-button";
    noButton.innerText = "No";
    noButton.addEventListener("click", () => hideModal());
 
+   deleteButtonContainer.appendChild(yesButton);
+   deleteButtonContainer.appendChild(noButton);
+
    modalContent.appendChild(question);
-   modalContent.appendChild(yesButton);
-   modalContent.appendChild(noButton);
+   modalContent.appendChild(deleteButtonContainer);
    modal.appendChild(modalContent);
 }

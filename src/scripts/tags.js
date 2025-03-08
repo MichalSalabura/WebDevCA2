@@ -98,7 +98,7 @@ function modifyTagModal() {
 
    let modifTagInput = document.createElement("input");
    modifTagInput.id = "new-tag";
-   modifTagClassList = "input-field";
+   modifTagInput.ClassList = "input-field";
    modifTagInput.type = "text";
    modifTagInput.name = "new-tag";
    modifTagInput.placeholder = "Plastic";
@@ -136,11 +136,11 @@ function modifyTagModal() {
 
 function tagForm() {
    let form = document.createElement("form");
-   form.id = modal-form;
+   form.id = "modal-form";
    // Display all types
    types.forEach((type, index) => {
       let radioContainer = document.createElement('div');
-      radioContainer.id = "radio-container";
+      radioContainer.classList = "radio-container";
 
       let typeRadio = document.createElement("input");
       typeRadio.id = `type${index}`;

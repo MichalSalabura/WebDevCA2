@@ -106,7 +106,7 @@ function createImage(urls) {
 // creates and returns container with images that can be removed
 function createImageModif(urls, id) {
    let imageContainer = document.createElement("div");
-   imageContainer.className = "img-container";
+   imageContainer.id = "img-container";
    for (let i = 0; i < urls.length; i++) {
       let image = document.createElement("img");
       image.classList = "displayed-img";

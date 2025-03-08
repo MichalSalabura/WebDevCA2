@@ -115,10 +115,10 @@ menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
-display {
+#display {
   margin: 20px;
 }
-.img-container {
+#img-container {
   display: flex;
   justify-content: center;
   gap: 20px;
