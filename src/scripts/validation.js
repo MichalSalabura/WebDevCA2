@@ -4,12 +4,12 @@ function validate(data) {
    if (!types.includes(data[0].value)) {
       return 1;
    }
-// check if accepted item exists
+   // check if accepted item exists
    let accItemsArr = data[4].value.split(",").map((item) => item.trim());
    for (let element of accItemsArr) {
       if (!accepted.includes(element)) return 4;
    }
-// check if non accepted item exists
+   // check if non accepted item exists
    let nonAccItemsArr = data[5].value.split(",").map((item) => item.trim());
    for (let element of nonAccItemsArr) {
       if (!nonAccepted.includes(element)) return 5;

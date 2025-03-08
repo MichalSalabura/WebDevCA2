@@ -38,7 +38,7 @@ function displayData(data) {
    }
 
    table.appendChild(headRow);
-// Create rows
+   // Create rows
    for (let i = 0; i < data.length; i++) {
       let row = document.createElement("tr");
       row.id = i;
@@ -69,7 +69,7 @@ function displayData(data) {
       modifButton.addEventListener("click", (e) => {
          displayModify(i);
       });
-// append elements to table
+      // append elements to table
       let buttonsContainer = document.createElement("td");
       buttonsContainer.className = "buttons-container";
       buttonsContainer.appendChild(delButton);

@@ -1,16 +1,9 @@
 // display modify screen
 function displayModify(id) {
    id = parseInt(id);
-// get modal
+   // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
-   // hide modal on click
-   modal.addEventListener("click", (e) => {
-      if (e.target.id == "modal") {
-         hideModal();
-      }
-
-   });
    // create table and display data
    let modalContent = document.createElement("div");
    let modTable = document.createElement("table");
@@ -28,7 +21,7 @@ function displayModify(id) {
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-// Create form for modifying data
+   // Create form for modifying data
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -123,7 +116,7 @@ function displayModify(id) {
          invalid(isValid, data);
       }
    });
-   //append row 
+   //append row
    modTable.appendChild(row);
    // append images
    modalContent.appendChild(modTable);

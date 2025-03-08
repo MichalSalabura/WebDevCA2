@@ -10,16 +10,11 @@ function specific(id) {
    // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
-   // hide modal on click
-   modal.addEventListener("click", (e) => {
-      if (e.target.id == "modal") {
-         hideModal();
-      }
-   });
+
    let modalContent = document.createElement("div");
    let modTable = document.createElement("table");
    let headRow = document.createElement("tr");
-      // create headers
+   // create headers
    for (property in materialsArr[id]) {
       let header = document.createElement("th");
       header.innerText = property;
@@ -27,14 +22,14 @@ function specific(id) {
    }
    // append header to table in modal
    modTable.appendChild(headRow);
-// Create rows
+   // Create rows
    let row = document.createElement("tr");
    for (property in materialsArr[id]) {
       let tableContent = document.createElement("td");
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
-// append row
+   // append row
    modTable.appendChild(row);
    modalContent.appendChild(modTable);
    // append urls if exist
@@ -50,15 +45,9 @@ function specific(id) {
 // display form for adding data in a modal
 function addModal() {
    let isValid;
-      // get modal
+   // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
-   // hide modal on click
-   modal.addEventListener("click", (e) => {
-      if (e.target.id == "modal") {
-         hideModal();
-      }
-   });
 
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
@@ -168,7 +157,7 @@ function addModal() {
          invalid(isValid, data);
       }
    });
-// append elements to display modal
+   // append elements to display modal
    modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }
@@ -177,11 +166,6 @@ function addModal() {
 function confirmDelete(id) {
    let modal = document.getElementById("modal");
    modal.style.display = "block";
-   modal.addEventListener("click", (e) => {
-      if (e.target.id == "modal") {
-         hideModal();
-      }
-   });
 
    let modalContent = document.createElement("div");
    modalContent.className = "confirm-delete modal-content";

@@ -4,6 +4,13 @@ let types = [];
 let accepted = [];
 let nonAccepted = [];
 
+// hide modal on click
+modal.addEventListener("click", (e) => {
+   if (e.target.id == "modal") {
+      hideModal();
+   }
+});
+
 // fetching data asynchronously
 async function fetchData() {
    const response = await fetch("recycling.json");
@@ -25,7 +32,7 @@ fetchData()
          material.categories.forEach((cat) => {
             // get bin colour
             let bin_colour = assignBin(type, cat.recycling_code);
-            
+
             // list of all accepted exclusive
             cat.accepted_items.forEach((item) => {
                if (!accepted.includes(item)) accepted.push(item);
@@ -143,13 +150,13 @@ function createImageModif(urls, id) {
    for (let i = 0; i < urls.length; i++) {
       let image = document.createElement("img");
       image.src = urls[i];
-      image.addEventListener('click', e => {
+      image.addEventListener("click", (e) => {
          index = materialsArr[id]["urls"].indexOf(e.target.src);
          materialsArr[id]["urls"].splice(index, 1);
          displayData(materialsArr);
          hideModal();
          displayModify(id);
-      })
+      });
       imageContainer.appendChild(image);
    }
    return imageContainer;
