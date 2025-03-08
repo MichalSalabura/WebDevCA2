@@ -136,7 +136,7 @@ function createImage(urls) {
    }
    return imageContainer;
 }
-
+// creates and returns container with images that can be removed
 function createImageModif(urls, id) {
    let imageContainer = document.createElement("div");
    imageContainer.className = "img-container";
