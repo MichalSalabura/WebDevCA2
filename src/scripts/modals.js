@@ -194,28 +194,7 @@ function confirmDelete(id) {
    modalContent.appendChild(noButton);
    modal.appendChild(modalContent);
 }
-// Add empty url input
-function addUrl(parent) {
-   let urlInput = document.createElement("input");
-   urlInput.id = "url-input";
-   urlInput.type = "url";
-   urlInput.pattern = "^https://.*";
-   urlInput.placeholder = "https://JohnDoe.com";
-   urlInput.addEventListener("change", (e) => {
-      if (e.target.value == "") {
-         removeUrl(parent);
-      } else {
-         addUrl(parent);
-      }
-   });
-   parent.appendChild(urlInput);
-}
-// remove empty url input
-function removeUrl(parent) {
-   if (parent.children.length != 2) {
-      parent.removeChild(parent.children[parent.children.length - 1]);
-   }
-}
+
 // dispaly add tag modal
 function addTagModal() {
    let modal = document.getElementById("modal");

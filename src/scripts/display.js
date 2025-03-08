@@ -81,3 +81,10 @@ function displayData(data) {
    // append table to display
    display.appendChild(table);
 }
+// Displays menu
+const menu = document.querySelector(".menu");
+const offScreenMenu = document.querySelector(".off-screen-menu");
+menu.addEventListener("click", () => {
+   menu.classList.toggle("active");
+   offScreenMenu.classList.toggle("active");
+});

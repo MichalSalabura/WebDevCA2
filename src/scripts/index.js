@@ -91,47 +91,6 @@ function assignBin(type, code) {
    return bin_colour;
 }
 
-// delete data
-function deleteData(id) {
-   materialsArr.splice(id, 1);
-   displayData(materialsArr);
-}
-
-// add data
-function addData(data) {
-   // add more than 1 url
-   let urlArr = [];
-   for (let i = 8; i <= data.length - 1; i++) {
-      if (data[i].type === "url" && data[i].value !== "") {
-         urlArr.push(data[i].value);
-      }
-   }
-   // get bin colour
-   let bin_colour = assignBin(data[0].value, data[0].process);
-   materialsArr.push({
-      material: data[0].value,
-      name: data[1].value,
-      code: data[2].value,
-      process: data[3].value,
-      accepted: data[4].value,
-      non_accepted: data[5].value,
-      recyclability: data[6].value,
-      impact: data[7].value,
-      bin: bin_colour,
-      urls: urlArr,
-   });
-   displayData(materialsArr);
-   hideModal();
-}
-
-// Displays menu
-const menu = document.querySelector(".menu");
-const offScreenMenu = document.querySelector(".off-screen-menu");
-menu.addEventListener("click", () => {
-   menu.classList.toggle("active");
-   offScreenMenu.classList.toggle("active");
-});
-
 // Creates and returns container with images
 function createImage(urls) {
    let imageContainer = document.createElement("div");
@@ -162,7 +121,29 @@ function createImageModif(urls, id) {
    return imageContainer;
 }
 
+// Add empty url input
+function addUrl(parent) {
+   let urlInput = document.createElement("input");
+   urlInput.id = "url-input";
+   urlInput.type = "url";
+   urlInput.pattern = "^https://.*";
+   urlInput.placeholder = "https://JohnDoe.com";
+   urlInput.addEventListener("change", (e) => {
+      if (e.target.value == "") {
+         removeUrl(parent);
+      } else {
+         addUrl(parent);
+      }
+   });
+   parent.appendChild(urlInput);
+}
+
+// remove empty url input
+function removeUrl(parent) {
+   if (parent.children.length != 2) {
+      parent.removeChild(parent.children[parent.children.length - 1]);
+   }
+}
 // todo:
 // Proper Form validation
-// Modifying tags
 // Styling
