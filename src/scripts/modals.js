@@ -12,11 +12,15 @@ function specific(id) {
    modal.style.display = "block";
 
    let modalContent = document.createElement("div");
+   modalContent.classList = "modal-content";
    let modTable = document.createElement("table");
+   modTable.id = "modal-table";
    let headRow = document.createElement("tr");
+   headRow.classList = "modal-row";
    // create headers
    for (property in materialsArr[id]) {
       let header = document.createElement("th");
+      header.classList = "modal-head";
       header.innerText = property;
       headRow.appendChild(header);
    }
@@ -24,8 +28,10 @@ function specific(id) {
    modTable.appendChild(headRow);
    // Create rows
    let row = document.createElement("tr");
+   row.classList = "modal-row"
    for (property in materialsArr[id]) {
       let tableContent = document.createElement("td");
+      tableContent.classList = "modal-cell"
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
@@ -37,7 +43,6 @@ function specific(id) {
       modalContent.appendChild(createImage(materialsArr[id]["urls"]));
    }
 
-   modalContent.className = "modal-content";
    // append modal to display
    modal.appendChild(modalContent);
 }
@@ -50,7 +55,7 @@ function addModal() {
    modal.style.display = "block";
 
    let modalContent = document.createElement("div");
-   modalContent.className = "modal-content";
+   modalContent.classList = "modal-content";
 
    let error = document.createElement("span");
    error.style.color = "red";
@@ -58,97 +63,7 @@ function addModal() {
    error.id = "error";
 
    // Create form
-   let form = document.createElement("form");
-
-   let materialLabel = document.createElement("label");
-   materialLabel.setAttribute("for", "material-input");
-   materialLabel.innerText = "Material:";
-   let materialInput = document.createElement("input");
-   materialInput.id = "material-input";
-   materialInput.placeholder =
-      `Available types: ${types.join(", ")}`;
-   materialInput.required = true;
-   form.appendChild(materialLabel);
-   form.appendChild(materialInput);
-
-   let nameLabel = document.createElement("label");
-   nameLabel.setAttribute("for", "name-input");
-   nameLabel.innerText = "Name:";
-   let nameInput = document.createElement("input");
-   nameInput.id = "name-input";
-   nameInput.required = true;
-   form.appendChild(nameLabel);
-   form.appendChild(nameInput);
-
-   let codeLabel = document.createElement("label");
-   codeLabel.setAttribute("for", "code-input");
-   codeLabel.innerText = "Recycling Code:";
-   let codeInput = document.createElement("input");
-   codeInput.id = "code-input";
-   codeInput.required = true;
-   form.appendChild(codeLabel);
-   form.appendChild(codeInput);
-
-   let processLabel = document.createElement("label");
-   processLabel.setAttribute("for", "process-input");
-   processLabel.innerText = "Recycling Process:";
-   let processInput = document.createElement("input");
-   processInput.id = "process-input";
-   processInput.required = true;
-   form.appendChild(processLabel);
-   form.appendChild(processInput);
-
-   let acceptedLabel = document.createElement("label");
-   acceptedLabel.setAttribute("for", "accepted-input");
-   acceptedLabel.innerText = "Accepted Items:";
-   let acceptedInput = document.createElement("textarea");
-   acceptedInput.id = "accepted-input";
-   acceptedInput.placeholder = `One or more of: ${accepted.join(", ")}`;
-   acceptedInput.required = true;
-   form.appendChild(acceptedLabel);
-   form.appendChild(acceptedInput);
-
-   let nonAcceptedLabel = document.createElement("label");
-   nonAcceptedLabel.setAttribute("for", "non-accepted-input");
-   nonAcceptedLabel.innerText = "Non Accepted Items:";
-   let nonAcceptedInput = document.createElement("textarea");
-   nonAcceptedInput.id = "non-accepted-input";
-   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.join(", ")}`;
-   nonAcceptedInput.required = true;
-   form.appendChild(nonAcceptedLabel);
-   form.appendChild(nonAcceptedInput);
-
-   let recyclabilityLabel = document.createElement("label");
-   recyclabilityLabel.setAttribute("for", "recyclability-input");
-   recyclabilityLabel.innerText = "Recyclability:";
-   let recyclabilityInput = document.createElement("input");
-   recyclabilityInput.id = "recyclability-input";
-   recyclabilityInput.required = true;
-   form.appendChild(recyclabilityLabel);
-   form.appendChild(recyclabilityInput);
-
-   let environmentalLabel = document.createElement("label");
-   environmentalLabel.setAttribute("for", "environmental-input");
-   environmentalLabel.innerText = "Environmental Impact:";
-   let environmentalInput = document.createElement("input");
-   environmentalInput.id = "environmental-input";
-   environmentalInput.required = true;
-   form.appendChild(environmentalLabel);
-   form.appendChild(environmentalInput);
-
-   let urlContainer = document.createElement("div");
-   urlContainer.id = "url-container";
-   let urlLabel = document.createElement("label");
-   urlLabel.setAttribute("for", "url-input");
-   urlLabel.innerText = "URLs:";
-   urlContainer.appendChild(urlLabel);
-   addUrl(urlContainer);
-   form.appendChild(urlContainer);
-
-   let submitButton = document.createElement("input");
-   submitButton.type = "submit";
-   submitButton.value = "submit";
-   form.appendChild(submitButton);
+   let form = createDataForm();
 
    // check if data is valid on submit
    form.addEventListener("submit", (e) => {
@@ -192,45 +107,5 @@ function confirmDelete(id) {
    modalContent.appendChild(question);
    modalContent.appendChild(yesButton);
    modalContent.appendChild(noButton);
-   modal.appendChild(modalContent);
-}
-
-// dispaly add tag modal
-function addTagModal() {
-   let modal = document.getElementById("modal");
-   modal.style.display = "block";
-   modal.addEventListener("click", (e) => {
-      if (e.target.id == "modal") {
-         hideModal();
-      }
-   });
-
-   let modalContent = document.createElement("div");
-   modalContent.className = "modal-content";
-
-   let form = document.createElement("form");
-
-   let materialLabel = document.createElement("label");
-   materialLabel.setAttribute("for", "material-input");
-   materialLabel.innerText = "Input new Tag:";
-   let materialInput = document.createElement("input");
-   materialInput.id = "material-input";
-   materialInput.placeholder = `Current Tags: ta`;
-   materialInput.required = true;
-   form.appendChild(materialLabel);
-   form.appendChild(materialInput);
-
-   let submitButton = document.createElement("input");
-   submitButton.type = "submit";
-   submitButton.value = "submit";
-   form.appendChild(submitButton);
-
-   form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let data = [...e.target];
-      types.push(e.target[0]);
-   });
-
-   modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }

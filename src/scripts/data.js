@@ -8,19 +8,23 @@ function displayModify(id) {
    modalContent.className = "modal-content";
 
    // create table and display data
-
    let modTable = document.createElement("table");
+   modTable.id = "modal-table"
    let headRow = document.createElement("tr");
+   headRow.className = "modal-row"
    for (property in materialsArr[id]) {
       let header = document.createElement("th");
+      header.className = "modal-head"
       header.innerText = property;
       headRow.appendChild(header);
    }
    modTable.appendChild(headRow);
 
    let row = document.createElement("tr");
+   row.className = "modal-row"
    for (property in materialsArr[id]) {
       let tableContent = document.createElement("td");
+      tableContent.className = "modal-cell"
       tableContent.innerText = materialsArr[id][property];
       row.appendChild(tableContent);
    }
@@ -30,88 +34,7 @@ function displayModify(id) {
    error.style.display = "none";
    error.id = "error";
 
-   let form = document.createElement("form");
-
-   let materialLabel = document.createElement("label");
-   materialLabel.setAttribute("for", "material-input");
-   materialLabel.innerText = "Material:";
-   let materialInput = document.createElement("input");
-   materialInput.id = "material-input";
-   materialInput.placeholder = `Available types: ${types.join(", ")}`;
-   form.appendChild(materialLabel);
-   form.appendChild(materialInput);
-
-   let nameLabel = document.createElement("label");
-   nameLabel.setAttribute("for", "name-input");
-   nameLabel.innerText = "Name:";
-   let nameInput = document.createElement("input");
-   nameInput.id = "name-input";
-   form.appendChild(nameLabel);
-   form.appendChild(nameInput);
-
-   let codeLabel = document.createElement("label");
-   codeLabel.setAttribute("for", "code-input");
-   codeLabel.innerText = "Recycling Code:";
-   let codeInput = document.createElement("input");
-   codeInput.id = "code-input";
-   form.appendChild(codeLabel);
-   form.appendChild(codeInput);
-
-   let processLabel = document.createElement("label");
-   processLabel.setAttribute("for", "process-input");
-   processLabel.innerText = "Recycling Process:";
-   let processInput = document.createElement("input");
-   processInput.id = "process-input";
-   form.appendChild(processLabel);
-   form.appendChild(processInput);
-
-   let acceptedLabel = document.createElement("label");
-   acceptedLabel.setAttribute("for", "accepted-input");
-   acceptedLabel.innerText = "Accepted Items:";
-   let acceptedInput = document.createElement("textarea");
-   acceptedInput.id = "accepted-input";
-   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
-   form.appendChild(acceptedLabel);
-   form.appendChild(acceptedInput);
-
-   let nonAcceptedLabel = document.createElement("label");
-   nonAcceptedLabel.setAttribute("for", "non-accepted-input");
-   nonAcceptedLabel.innerText = "Non Accepted Items:";
-   let nonAcceptedInput = document.createElement("textarea");
-   nonAcceptedInput.id = "non-accepted-input";
-   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
-   form.appendChild(nonAcceptedLabel);
-   form.appendChild(nonAcceptedInput);
-
-   let recyclabilityLabel = document.createElement("label");
-   recyclabilityLabel.setAttribute("for", "recyclability-input");
-   recyclabilityLabel.innerText = "Recyclability:";
-   let recyclabilityInput = document.createElement("input");
-   recyclabilityInput.id = "recyclability-input";
-   form.appendChild(recyclabilityLabel);
-   form.appendChild(recyclabilityInput);
-
-   let environmentalLabel = document.createElement("label");
-   environmentalLabel.setAttribute("for", "environmental-input");
-   environmentalLabel.innerText = "Environmental Impact:";
-   let environmentalInput = document.createElement("input");
-   environmentalInput.id = "environmental-input";
-   form.appendChild(environmentalLabel);
-   form.appendChild(environmentalInput);
-
-   let urlContainer = document.createElement("div");
-   urlContainer.id = "url-container";
-   let urlLabel = document.createElement("label");
-   urlLabel.setAttribute("for", "url-input");
-   urlLabel.innerText = "URLs:";
-   urlContainer.appendChild(urlLabel);
-   addUrl(urlContainer);
-   form.appendChild(urlContainer);
-
-   let submitButton = document.createElement("input");
-   submitButton.type = "submit";
-   submitButton.value = "submit";
-   form.appendChild(submitButton);
+   let form = createDataForm();
 
    // validate data on submit
    form.addEventListener("submit", (e) => {
@@ -230,4 +153,110 @@ function addData(data) {
    });
    displayData(materialsArr);
    hideModal();
+}
+
+// created Data form
+function createDataForm() {
+   let form = document.createElement("form");
+   form.id = "modal-form"
+
+   let materialLabel = document.createElement("label");
+   materialLabel.setAttribute("for", "material-input");
+   materialLabel.innerText = "Material:";
+   materialLabel.className = "input-label";
+   let materialInput = document.createElement("input");
+   materialInput.id = "material-input";
+   materialInput.classList = "input-field";
+   materialInput.placeholder = `Available types: ${types.join(", ")}`;
+   form.appendChild(materialLabel);
+   form.appendChild(materialInput);
+
+   let nameLabel = document.createElement("label");
+   nameLabel.setAttribute("for", "name-input");
+   nameLabel.innerText = "Name:";
+   nameLabel.className = "input-label";
+   let nameInput = document.createElement("input");
+   nameInput.id = "name-input";
+   nameInput.classList = "input-field";
+   form.appendChild(nameLabel);
+   form.appendChild(nameInput);
+
+   let codeLabel = document.createElement("label");
+   codeLabel.setAttribute("for", "code-input");
+   codeLabel.innerText = "Recycling Code:";
+   codeLabel.className = "input-label";
+   let codeInput = document.createElement("input");
+   codeInput.id = "code-input";
+   codeInput.classList = "input-field";
+   form.appendChild(codeLabel);
+   form.appendChild(codeInput);
+
+   let processLabel = document.createElement("label");
+   processLabel.setAttribute("for", "process-input");
+   processLabel.innerText = "Recycling Process:";
+   processLabel.className = "input-label";
+   let processInput = document.createElement("input");
+   processInput.id = "process-input";
+   processInput.classList = "input-field";
+   form.appendChild(processLabel);
+   form.appendChild(processInput);
+
+   let acceptedLabel = document.createElement("label");
+   acceptedLabel.setAttribute("for", "accepted-input");
+   acceptedLabel.innerText = "Accepted Items:";
+   acceptedLabel.className = "input-label";
+   let acceptedInput = document.createElement("textarea");
+   acceptedInput.id = "accepted-input";
+   acceptedInput.classList = "input-field";
+   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
+   form.appendChild(acceptedLabel);
+   form.appendChild(acceptedInput);
+
+   let nonAcceptedLabel = document.createElement("label");
+   nonAcceptedLabel.setAttribute("for", "non-accepted-input");
+   nonAcceptedLabel.innerText = "Non Accepted Items:";
+   nonAcceptedLabel.className = "input-label";
+   let nonAcceptedInput = document.createElement("textarea");
+   nonAcceptedInput.id = "non-accepted-input";
+   nonAcceptedInput.classList = "input-field";
+   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
+   form.appendChild(nonAcceptedLabel);
+   form.appendChild(nonAcceptedInput);
+
+   let recyclabilityLabel = document.createElement("label");
+   recyclabilityLabel.setAttribute("for", "recyclability-input");
+   recyclabilityLabel.innerText = "Recyclability:";
+   recyclabilityLabel.className = "input-label";
+   let recyclabilityInput = document.createElement("input");
+   recyclabilityInput.id = "recyclability-input";
+   recyclabilityInput.classList = "input-field";
+   form.appendChild(recyclabilityLabel);
+   form.appendChild(recyclabilityInput);
+
+   let environmentalLabel = document.createElement("label");
+   environmentalLabel.setAttribute("for", "environmental-input");
+   environmentalLabel.innerText = "Environmental Impact:";
+   environmentalLabel.className = "input-label";
+   let environmentalInput = document.createElement("input");
+   environmentalInput.id = "environmental-input";
+   environmentalInput.classList = "input-field";
+   form.appendChild(environmentalLabel);
+   form.appendChild(environmentalInput);
+
+   let urlContainer = document.createElement("div");
+   urlContainer.id = "url-container";
+   let urlLabel = document.createElement("label");
+   urlLabel.className = "input-label"
+   urlLabel.setAttribute("for", "url-input");
+   urlLabel.innerText = "URLs:";
+   urlContainer.appendChild(urlLabel);
+   addUrl(urlContainer);
+   form.appendChild(urlContainer);
+
+   let submitButton = document.createElement("input");
+   submitButton.type = "submit";
+   submitButton.value = "submit";
+   submitButton.className = "submit-button"
+   form.appendChild(submitButton);
+   return form;
 }

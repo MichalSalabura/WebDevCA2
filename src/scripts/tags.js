@@ -7,18 +7,22 @@ function addTagModal() {
    modalContent.className = "modal-content";
    // create form for adding tags
    let form = document.createElement("form");
+   form.id = "modal-form";
 
-   let materialLabel = document.createElement("label");
-   materialLabel.setAttribute("for", "material-input");
-   materialLabel.innerText = "Input new Tag:";
-   let materialInput = document.createElement("input");
-   materialInput.id = "material-input";
-   materialInput.placeholder = `Current Tags: ${types.toString()}`;
-   materialInput.required = true;
-   form.appendChild(materialLabel);
-   form.appendChild(materialInput);
+   let tagLabel = document.createElement("label");
+   tagLabel.classList = "input-label"
+   tagLabel.setAttribute("for", "material-input");
+   tagLabel.innerText = "Input new Tag:";
+   let tagInput = document.createElement("input");
+   tagInput.id = "material-input";
+   tagInput.classList = "material-field"
+   tagInput.placeholder = `Current Tags: ${types.toString()}`;
+   tagInput.required = true;
+   form.appendChild(tagLabel);
+   form.appendChild(tagInput);
 
    let submitButton = document.createElement("input");
+   submitButton.classList = "submit-button"
    submitButton.type = "submit";
    submitButton.value = "submit";
    form.appendChild(submitButton);
@@ -48,8 +52,9 @@ function deleteTagModal() {
    // create form for deleting tags
    let form = tagForm();
    let submit = document.createElement("input");
+   submit.classList = "submit-button";
    submit.type = "submit";
-   submit.value = "Apply";
+   submit.value = "Delete";
    form.appendChild(submit);
    // remove selected tag
    form.addEventListener("submit", (e) => {
@@ -86,19 +91,22 @@ function modifyTagModal() {
    let form = tagForm();
 
    let modifTagLabel = document.createElement("label");
+   modifTagLabel.classList = "input-label";
    modifTagLabel.setAttribute("for", "new-tag");
    modifTagLabel.innerText = "New tag:";
    modifTagLabel.appendChild(document.createElement("br"));
 
    let modifTagInput = document.createElement("input");
-   modifTagInput.type = "text";
    modifTagInput.id = "new-tag";
+   modifTagClassList = "input-field";
+   modifTagInput.type = "text";
    modifTagInput.name = "new-tag";
    modifTagInput.placeholder = "Plastic";
    modifTagLabel.appendChild(modifTagInput);
    form.appendChild(modifTagLabel);
 
    let submit = document.createElement("input");
+   submit.classList = "submit-button";
    submit.type = "submit";
    submit.value = "Apply";
    form.appendChild(submit);
@@ -128,23 +136,28 @@ function modifyTagModal() {
 
 function tagForm() {
    let form = document.createElement("form");
+   form.id = modal-form;
    // Display all types
    types.forEach((type, index) => {
+      let radioContainer = document.createElement('div');
+      radioContainer.id = "radio-container";
+
       let typeRadio = document.createElement("input");
-      typeRadio.type = "radio";
       typeRadio.id = `type${index}`;
+      typeRadio.classList = "input-radio";
+      typeRadio.type = "radio";
       typeRadio.name = `type`;
       typeRadio.value = index;
 
       let typeLabel = document.createElement("label");
-      typeLabel.className = "type-label";
+      typeLabel.classList = "type-label input-label";
       typeLabel.innerText = type;
       typeLabel.setAttribute("for", `type${index}`);
 
-      form.appendChild(typeRadio);
-      form.appendChild(typeLabel);
-      form.appendChild(document.createElement("br"));
-   });
+      radioContainer.appendChild(typeRadio);
+      radioContainer.appendChild(typeLabel);
+      form.appendChild(radioContainer);
+   })
    return form;
 }
 

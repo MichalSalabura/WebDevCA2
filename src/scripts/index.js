@@ -94,9 +94,10 @@ function assignBin(type, code) {
 // Creates and returns container with images
 function createImage(urls) {
    let imageContainer = document.createElement("div");
-   imageContainer.className = "img-container";
+   imageContainer.id = "img-container";
    for (let i = 0; i < urls.length; i++) {
       let image = document.createElement("img");
+      image.classList = "displayed-img";
       image.src = urls[i];
       imageContainer.appendChild(image);
    }
@@ -108,6 +109,7 @@ function createImageModif(urls, id) {
    imageContainer.className = "img-container";
    for (let i = 0; i < urls.length; i++) {
       let image = document.createElement("img");
+      image.classList = "displayed-img";
       image.src = urls[i];
       image.addEventListener("click", (e) => {
          index = materialsArr[id]["urls"].indexOf(e.target.src);
@@ -124,7 +126,7 @@ function createImageModif(urls, id) {
 // Add empty url input
 function addUrl(parent) {
    let urlInput = document.createElement("input");
-   urlInput.id = "url-input";
+   urlInput.classList = "input-field url-input";
    urlInput.type = "url";
    urlInput.pattern = "^https://.*";
    urlInput.placeholder = "https://JohnDoe.com";

@@ -3,8 +3,10 @@ function displayData(data) {
    let display = document.getElementById("display");
    display.innerHTML = "";
    let table = document.createElement("table");
+   table.id = "display-table"
    // Create headers
    let headRow = document.createElement("tr");
+   headRow.classList = "th-row"
    let check = false;
    let inCheck = false;
    materialsArr.forEach((material) => {
@@ -41,17 +43,20 @@ function displayData(data) {
    // Create rows
    for (let i = 0; i < data.length; i++) {
       let row = document.createElement("tr");
+      row.classList = "table-row"
       row.id = i;
       row.addEventListener("click", (e) => {
          if (e.target.className != "control-button") specific(i);
       });
       for (material in data[i]) {
          let tableData = document.createElement("td");
+         tableData.classList = "display-cell"
          tableData.innerText = data[i][material];
          row.appendChild(tableData);
       }
       if (check && !data[i].hasOwnProperty("urls")) {
          let tableData = document.createElement("td");
+         tableData.classList = "display-cell"
          tableData.innerText = "";
          row.appendChild(tableData);
       }
@@ -71,7 +76,7 @@ function displayData(data) {
       });
       // append elements to table
       let buttonsContainer = document.createElement("td");
-      buttonsContainer.className = "buttons-container";
+      buttonsContainer.id = "buttons-container";
       buttonsContainer.appendChild(delButton);
       buttonsContainer.appendChild(modifButton);
       row.appendChild(buttonsContainer);
@@ -81,7 +86,8 @@ function displayData(data) {
    // append table to display
    display.appendChild(table);
 }
-// Displays menu
+
+// display menu
 const menu = document.querySelector(".menu");
 const offScreenMenu = document.querySelector(".off-screen-menu");
 menu.addEventListener("click", () => {
