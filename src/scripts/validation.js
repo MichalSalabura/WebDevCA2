@@ -40,18 +40,22 @@ function validateModify(data) {
 }
 // Return error message
 function invalid(errorCode, data) {
+   let errorContainer = document.getElementById('error');
    switch (errorCode) {
       case 1:
-         data[0].placeholder = "Not a valid material type!";
+         errorContainer.innerText = "Not a valid material type";
+         errorContainer.style.display = "block";
          data[0].value = "";
          break;
 
       case 4:
-         data[4].placeholder = "Not on the list of accepted items!";
+         errorContainer.innerText = "Not on the list of accepted items!";
+         errorContainer.style.display = "block"
          data[4].value = "";
          break;
       case 5:
-         data[5].placeholder = "Not on the list of nonaccepted items!";
+         errorContainer.innerText = "Not on the list of nonaccepted items!";
+         errorContainer.style.display = "block";
          data[5].value = "";
          break;
       default:

@@ -43,7 +43,8 @@ function deleteTagModal() {
    modalContent.className = "modal-content";
    let error = document.createElement("span");
    error.style.color = "red";
-   error.display = "none";
+   error.style.display = "none";
+   error.id = "error";
    // create form for deleting tags
    let form = tagForm();
    let submit = document.createElement("input");
@@ -60,7 +61,7 @@ function deleteTagModal() {
          displayData(materialsArr);
          hideModal();
       } else {
-         error.display = "block";
+         error.style.display = "block";
          error.innerText = "no type selected!";
       }
    });
@@ -79,7 +80,8 @@ function modifyTagModal() {
 
    let error = document.createElement("span");
    error.style.color = "red";
-   error.display = "none";
+   error.style.display = "none";
+   error.id = "error"
 
    let form = tagForm();
 
@@ -113,10 +115,10 @@ function modifyTagModal() {
          hideModal();
       } else if (data.get("new-tag") === "") {
          error.innerText = "No new tag set";
-         error.display = "block";
+         error.style.display = "block";
       } else {
          error.innerText = "No tag selected to modify";
-         error.display = "block";
+         error.style.display = "block";
       }
    });
    modalContent.appendChild(error);

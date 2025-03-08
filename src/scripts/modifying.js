@@ -4,8 +4,11 @@ function displayModify(id) {
    // get modal
    let modal = document.getElementById("modal");
    modal.style.display = "block";
-   // create table and display data
    let modalContent = document.createElement("div");
+   modalContent.className = "modal-content";
+
+   // create table and display data
+
    let modTable = document.createElement("table");
    let headRow = document.createElement("tr");
    for (property in materialsArr[id]) {
@@ -22,6 +25,11 @@ function displayModify(id) {
       row.appendChild(tableContent);
    }
    // Create form for modifying data
+   let error = document.createElement("span");
+   error.style.color = "red";
+   error.style.display = "none";
+   error.id = "error";
+
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -29,7 +37,7 @@ function displayModify(id) {
    materialLabel.innerText = "Material:";
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
-   materialInput.placeholder = `Ex. ${types.toString()}`;
+   materialInput.placeholder = `Available types: ${types.join(", ")}`;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
 
@@ -124,8 +132,8 @@ function displayModify(id) {
       modalContent.appendChild(createImageModif(materialsArr[id]["urls"], id));
    }
    // append form
+   modalContent.appendChild(error);
    modalContent.appendChild(form);
-   modalContent.className = "modal-content";
    // display all
    modal.appendChild(modalContent);
 }

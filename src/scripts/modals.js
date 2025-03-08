@@ -52,8 +52,12 @@ function addModal() {
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
 
-   // Create form
+   let error = document.createElement("span");
+   error.style.color = "red";
+   error.style.display = "none";
+   error.id = "error";
 
+   // Create form
    let form = document.createElement("form");
 
    let materialLabel = document.createElement("label");
@@ -62,7 +66,7 @@ function addModal() {
    let materialInput = document.createElement("input");
    materialInput.id = "material-input";
    materialInput.placeholder =
-      "Ex. Plastic, Glass, Metal, Paper, Organic Waste";
+      `Available types: ${types.join(", ")}`;
    materialInput.required = true;
    form.appendChild(materialLabel);
    form.appendChild(materialInput);
@@ -99,7 +103,7 @@ function addModal() {
    acceptedLabel.innerText = "Accepted Items:";
    let acceptedInput = document.createElement("textarea");
    acceptedInput.id = "accepted-input";
-   acceptedInput.placeholder = `One or more of: ${accepted.toString()}`;
+   acceptedInput.placeholder = `One or more of: ${accepted.join(", ")}`;
    acceptedInput.required = true;
    form.appendChild(acceptedLabel);
    form.appendChild(acceptedInput);
@@ -109,7 +113,7 @@ function addModal() {
    nonAcceptedLabel.innerText = "Non Accepted Items:";
    let nonAcceptedInput = document.createElement("textarea");
    nonAcceptedInput.id = "non-accepted-input";
-   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.toString()}`;
+   nonAcceptedInput.placeholder = `One or more of: ${nonAccepted.join(", ")}`;
    nonAcceptedInput.required = true;
    form.appendChild(nonAcceptedLabel);
    form.appendChild(nonAcceptedInput);
@@ -158,6 +162,7 @@ function addModal() {
       }
    });
    // append elements to display modal
+   modalContent.appendChild(error);
    modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }
