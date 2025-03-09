@@ -224,9 +224,7 @@ form.example::after {
 .add{
     transform: translate(225px, -70px); 
 }
-.menu {
-  display: none;
-}
+
 
 
 
