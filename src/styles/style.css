@@ -177,8 +177,9 @@ body {
     }
 }
 
-.container{
-    width: 100%;
+.title{
+    transform: translate(-1100px, -6px);
+    color: white;
+  
 }
-
 
