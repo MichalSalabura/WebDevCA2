@@ -161,23 +161,14 @@ body {
     padding: 0;
 }
 
-/* Adjust for tablets */
+
 @media (max-width: 768px) {
     body {
         font-size: 16px;
     }
     .container {
-        width: 90%;
+        width: 100%;
     }
 }
 
-/* Adjust for phones */
-@media (max-width: 480px) and (orientation: landscape) {
-    body {
-        font-size: 14px;
-    }
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-}
+   
