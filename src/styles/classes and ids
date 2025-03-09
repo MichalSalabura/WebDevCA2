@@ -1,0 +1,83 @@
+main table:
+	#display-table
+	.th-row
+	.table-head
+	.table-row.
+	.display-cell
+	#buttons-container
+	.control-buttons
+
+menu buttons:
+	.menu-button
+
+modals:
+
+	delete modal:
+		#modal
+		.modal-content and .confirm-delete	
+		#delete-question
+		#del-but-cont
+		.delete-button
+	
+	add modal:
+		#modal
+		.modal-content
+		#error
+		#modal-form
+		.input-label
+		.input-field
+		.input-area
+		#url-container
+		.url-input
+		.submit-button
+
+
+	modify modal:
+		#modal
+		.modal-content
+		#modal-table
+		.modal-row
+		.modal-head
+		.modal-cell
+		#img-container
+		.displayed-img
+		#error
+		#modal-form
+		.input-label
+		.input-field
+		.input-area
+		#url-container
+		.url-input
+		.submit-button
+
+	modify tag modal:
+		#modal
+		.modal-content
+		#error
+		#modal-form
+		.radio-container
+		.input-radio
+		.input-label
+		.input-field
+		#new-tag
+		.submit-button
+	
+	add tag modal:
+		#modal
+		.modal-content
+		#modal-form
+		.input-label
+		#material-input
+		.material-field
+		.submit-button
+	
+	delete tag modal:
+		#modal
+		.modal-content
+		#error
+		#modal-form
+		.radio-container
+		.input-radio
+		.submit-button
+		
+
