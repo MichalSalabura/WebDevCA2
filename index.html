@@ -1,47 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CA2</title>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-  </head>
-  
-  
-  <body>
-    <div id="container">
-        
-      <div class="off-screen-menu">
-        <ul>
-         
-            
-            <li><button onclick="addModal()">Add Data</button></li>
-            <li><button onclick="modifyTagModal()">Modify Tag</button></li>
-            <li><button onclick="addTagModal()">Add Tag</button></li>
-            <li><button onclick="deleteTagModal()">Delete Tag</button></li>
-        </ul>
-        </div>
-        
-      <nav>
-        <div class = "menu">
-           <h1 class="title">Recycables</h1>
-             <span></span>
-             <span></span>
-             <span></span>
-        </div>
-      </nav>
-     
-        <div id="display"></div>
-        <div id="modal"></div>       
-          </div>
-      
-       <script src="src/scripts/index.js"></script>
-       <script src="src/scripts/display.js"></script>
-       <script src="src/scripts/modals.js"></script>
-       <script src="src/scripts/sort.js"></script>
-       <script src="src/scripts/validation.js"></script>
-       <script src="src/scripts/data.js"></script>
-       <script src="src/scripts/tags.js"></script>
-      
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CA2</title>
+      <link rel="stylesheet" href="src/styles/style.css" />
+   </head>
+   <body>
+      <div id="container">
+         <div class="off-screen-menu">
+            <ul>
+               <li><button onclick="addModal()" class="menu-button">Add Data</button></li>
+               <li><button onclick="modifyTagModal()" class="menu-button">Modify Tag</button></li>
+               <li><button onclick="addTagModal()" class="menu-button">Add Tag</button></li>
+               <li><button onclick="deleteTagModal()" class="menu-button">Delete Tag</button></li>
+            </ul>
+         </div>
+         <nav>
+            <div class="menu">
+                <h1 class="title">Recycables</h1>
+               <span></span>
+               <span></span>
+               <span></span>
+            </div>
+         </nav>
+         <div id="display"></div>
+         <div id="modal"></div>
+      </div>
+      <script src="src/scripts/index.js"></script>
+      <script src="src/scripts/display.js"></script>
+      <script src="src/scripts/modals.js"></script>
+      <script src="src/scripts/sort.js"></script>
+      <script src="src/scripts/validation.js"></script>
+      <script src="src/scripts/data.js"></script>
+      <script src="src/scripts/tags.js"></script>
+   </body>
 </html>
