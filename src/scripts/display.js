@@ -94,3 +94,12 @@ menu.addEventListener("click", () => {
    menu.classList.toggle("active");
    offScreenMenu.classList.toggle("active");
 });
+async function fixMobileusage() {
+  await setElementStyles(document.body, {
+    width: '100%',
+    maxWidth: '100%',
+    overflowX: 'hidden',
+    display: 'flex',
+    flexDirection: 'column'
+  });
+}
