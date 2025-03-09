@@ -158,58 +158,27 @@ nav {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-
-* {
-  box-sizing: border-box;
+body {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
 }
 
-
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .container {
+        width: 90%;
+    }
 }
 
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; 
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.button-container {
-  width: 200px; 
-}
-
-.button {
-  display: inline-block;
-  width: 100%; 
-  margin-bottom: 10px;
-  background-color: black;
-  color: white;
-}
-
-.search {
-    transform: translate(175px, -32px); 
-}
-.add{
-    transform: translate(225px, -70px); 
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
 }
