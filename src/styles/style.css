@@ -1,4 +1,8 @@
-
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 body{
     background-color:black;
 }
@@ -110,7 +114,6 @@ body {
 nav {
     padding: 1rem;
     display: flex;
-
     background-color: rgb(34, 37, 49);
 }
 
@@ -125,7 +128,7 @@ nav {
 }
 .menu span {
     height: 5px;
-    width: 100%;
+    width: 15%;
     background-color: #6F86FF;
     border-radius: 25px;
     position: absolute;
@@ -154,7 +157,7 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
-
+/* Default styles for larger screens */
 body {
     font-size: 18px;
     margin: 0;
@@ -162,14 +165,20 @@ body {
 }
 
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 768px) and (orientation: landscape) {
     body {
-        font-size: 16px;
+        font-size: 14px;
     }
     .container {
-        width: 100%;
+      width: 768px;
+        padding: 10px;
     }
 }
 
-   
+.container{
+    width: 100%;
+}
+
 
