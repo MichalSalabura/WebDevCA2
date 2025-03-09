@@ -1,0 +1,128 @@
+{
+  "materials": [
+    {
+      "type": "Plastic",
+      "categories": [
+        {
+          "name": "PET (Polyethylene Terephthalate)",
+          "recycling_code": "1",
+          "recycling_process": "Plastic is shredded, melted down, and turned into new plastic products such as bottles, clothing, and insulation.",
+          "accepted_items": ["Bottles", "Clothing", "Food containers"],
+          "non_accepted_items": ["Toys", "Food wrappers"],
+          "recyclability": "Widely recyclable",
+          "environmental_impact": "High energy usage during recycling but can be reused multiple times."
+        },
+        {
+          "name": "HDPE (High-Density Polyethylene)",
+          "recycling_code": "2",
+          "recycling_process": "HDPE is cleaned, shredded, and melted to create new products like piping, plastic lumber, and recycling bins.",
+          "accepted_items": ["Milk jugs", "Detergent bottles", "Pipes"],
+          "non_accepted_items": ["Plastic bags", "Toys"],
+          "recyclability": "Highly recyclable",
+          "environmental_impact": "Low environmental impact in the recycling process."
+        },
+        {
+          "name": "PVC (Polyvinyl Chloride)",
+          "recycling_code": "3",
+          "recycling_process": "PVC is difficult to recycle due to the toxic chemicals released during the process, but can be used in some specialized applications.",
+          "accepted_items": ["Plumbing pipes", "Vinyl flooring"],
+          "non_accepted_items": ["Window frames", "Clothing"],
+          "recyclability": "Low recyclability",
+          "environmental_impact": "Recycling process releases harmful chemicals."
+        }
+      ]
+    },
+    {
+      "type": "Glass",
+      "categories": [
+        {
+          "name": "Clear Glass",
+          "recycling_code": "7",
+          "recycling_process": "Glass is melted down and remolded into new containers or other products like tiles and insulation.",
+          "accepted_items": ["Bottles", "Jars", "Windows"],
+          "non_accepted_items": ["Ceramics", "Pyrex"],
+          "recyclability": "Infinitely recyclable without loss of quality",
+          "environmental_impact": "Low impact; energy-intensive melting process."
+        },
+        {
+          "name": "Colored Glass",
+          "recycling_code": "7",
+          "recycling_process": "Similar to clear glass, but may require separation and additional steps to remove colorants.",
+          "accepted_items": ["Colored bottles", "Decorative glass"],
+          "non_accepted_items": ["Mirrors", "Lampshades"],
+          "recyclability": "Highly recyclable",
+          "environmental_impact": "Low impact; requires sorting to remove contaminants."
+        }
+      ]
+    },
+    {
+      "type": "Metal",
+      "categories": [
+        {
+          "name": "Aluminum",
+          "recycling_code": "41",
+          "recycling_process": "Aluminum is melted and recast into new products such as cans, foil, and automotive parts.",
+          "accepted_items": ["Cans", "Foil", "Aluminum frames"],
+          "non_accepted_items": ["Aluminum-coated materials", "Electrical cables"],
+          "recyclability": "Highly recyclable, retains quality after multiple cycles",
+          "environmental_impact": "Low energy usage compared to primary aluminum production."
+        },
+        {
+          "name": "Steel",
+          "recycling_code": "40",
+          "recycling_process": "Steel is shredded, melted down, and recast into new products like beams, cans, and appliances.",
+          "accepted_items": ["Cans", "Appliance parts", "Construction beams"],
+          "non_accepted_items": ["Painted steel", "Rusty metals"],
+          "recyclability": "Highly recyclable",
+          "environmental_impact": "Low impact; often requires high-temperature melting."
+        }
+      ]
+    },
+    {
+      "type": "Paper",
+      "categories": [
+        {
+          "name": "Cardboard",
+          "recycling_code": "21",
+          "recycling_process": "Cardboard is flattened, pulped, and reformed into new cardboard products.",
+          "accepted_items": ["Shipping boxes", "Packaging", "Toilet paper rolls"],
+          "non_accepted_items": ["Greasy pizza boxes", "Wax-coated boxes"],
+          "recyclability": "Highly recyclable, but can be contaminated with food waste",
+          "environmental_impact": "Low energy impact, but can be affected by contamination."
+        },
+        {
+          "name": "Office Paper",
+          "recycling_code": "22",
+          "recycling_process": "Paper is shredded, pulped, and filtered to remove inks and adhesives, then used to make new paper products.",
+          "accepted_items": ["Printer paper", "Envelopes", "Notebook paper"],
+          "non_accepted_items": ["Paper towels", "Tissues"],
+          "recyclability": "Highly recyclable",
+          "environmental_impact": "Minimal; efficient recycling process."
+        }
+      ]
+    },
+    {
+      "type": "Organic Waste",
+      "categories": [
+        {
+          "name": "Food Scraps",
+          "recycling_code": "O1",
+          "recycling_process": "Food scraps are composted to create nutrient-rich soil for gardening and agriculture.",
+          "accepted_items": ["Vegetable peels", "Coffee grounds", "Eggshells"],
+          "non_accepted_items": ["Meat scraps", "Dairy products"],
+          "recyclability": "Biodegradable, easily compostable",
+          "environmental_impact": "Highly beneficial to soil, reduces methane emissions in landfills."
+        },
+        {
+          "name": "Yard Waste",
+          "recycling_code": "O2",
+          "recycling_process": "Yard waste is composted or used to generate biogas energy.",
+          "accepted_items": ["Grass clippings", "Leaves", "Branches"],
+          "non_accepted_items": ["Weeds with seeds", "Plastic bags"],
+          "recyclability": "Easily recyclable through composting or energy production",
+          "environmental_impact": "Reduces landfill waste and supports sustainable energy production."
+        }
+      ]
+    }
+  ]
+}
