@@ -14,24 +14,24 @@ function validate(data) {
       if (!accepted.includes(element)) return 4;
    }
    // check if accepted items matches regex
-   if (!acceptedReg.test(data[4].value)) return 5;
+   if (!acceptedReg.test(data[4].value)  && data[4].value !== "") return 5;
    // check if non accepted item exists
    let nonAccItemsArr = data[5].value.split(",").map((item) => item.trim());
    for (let element of nonAccItemsArr) {
       if (!nonAccepted.includes(element)) return 6;
    }
    // check if non accepted items matches regex
-   if (!acceptedReg.test(data[5].value)) return 7;
+   if (!acceptedReg.test(data[5].value) && data[5].value !== "") return 7;
 
    // check for name
-   if (!nameReg.test(data[1].value)) return 8;
+   if (!nameReg.test(data[1].value) && data[1].value !== "") return 8;
 
    // check for code
-   if (!codeReg.test(data[2].value)) return 9;
+   if (!codeReg.test(data[2].value) && data[2].value !== "") return 9;
    // check for length
-   if (!lengthReg.test(data[3].value)) return 10;
-   if (!lengthReg.test(data[6].value)) return 11;
-   if (!lengthReg.test(data[7].value)) return 12;
+   if (!lengthReg.test(data[3].value) && data[3].value !== "") return 10;
+   if (!lengthReg.test(data[6].value) && data[6].value !== "") return 11;
+   if (!lengthReg.test(data[7].value) && data[7].value !== "") return 12;
    // return 0 if no errors
    return 0;
 }
