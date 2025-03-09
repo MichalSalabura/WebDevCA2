@@ -119,7 +119,7 @@ nav {
 /* ham menu */
 .menu {
     height: 50px;
-    width: 15px;
+    width: 100px;
     margin-left: auto;
     position: relative;
 }
@@ -171,7 +171,5 @@ body {
     }
 }
 
-   .container{
-       width: 100%
-   }
+   
 
