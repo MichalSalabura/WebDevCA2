@@ -3,6 +3,11 @@ function addTagModal() {
    let modal = document.getElementById("modal");
    modal.style.display = "block";
 
+   let error = document.createElement("span");
+   error.style.color = "red";
+   error.style.display = "none";
+   error.id = "error";
+
    let modalContent = document.createElement("div");
    modalContent.className = "modal-content";
    // create form for adding tags
@@ -17,7 +22,6 @@ function addTagModal() {
    tagInput.id = "material-input";
    tagInput.classList = "material-field"
    tagInput.placeholder = `Current Tags: ${types.toString()}`;
-   tagInput.required = true;
    form.appendChild(tagLabel);
    form.appendChild(tagInput);
 
@@ -30,10 +34,17 @@ function addTagModal() {
    // add tag and hide modal on submit
    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      types.push(e.target[0].value);
-      hideModal();
+      if(e.target[0].value === "") {
+         e.target[0].focus();   
+         error.innerText = "New tag can't be empty";
+         error.style.display = "block";
+      } else {
+         types.push(e.target[0].value);
+         hideModal();
+      }
    });
 
+   modalContent.appendChild(error);
    modalContent.appendChild(form);
    modal.appendChild(modalContent);
 }
@@ -67,7 +78,7 @@ function deleteTagModal() {
          hideModal();
       } else {
          error.style.display = "block";
-         error.innerText = "no type selected!";
+         error.innerText = "no tag selected!";
       }
    });
 
