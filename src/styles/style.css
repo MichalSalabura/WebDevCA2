@@ -1,8 +1,4 @@
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+
 body{
     background-color:black;
 }
@@ -159,3 +155,29 @@ nav {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+body {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust for tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .container {
+        width: 90%;
+    }
+}
+
+/* Adjust for phones */
+@media (max-width: 480px) and (orientation: landscape) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+}
