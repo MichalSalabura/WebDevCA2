@@ -128,7 +128,7 @@ function addUrl(parent) {
    let urlInput = document.createElement("input");
    urlInput.classList = "input-field url-input";
    urlInput.type = "url";
-   urlInput.pattern = "^https://.*";
+   urlInput.pattern = "https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}(/.*)?";
    urlInput.placeholder = "https://JohnDoe.com";
    urlInput.addEventListener("change", (e) => {
       if (e.target.value == "") {
