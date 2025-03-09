@@ -158,27 +158,3 @@ nav {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-body {
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    .container {
-        width: 90%;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-}
